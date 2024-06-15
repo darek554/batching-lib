@@ -6,6 +6,7 @@ into batches with predefined characteristics.
 
 ## Installation
 
+This library requires Python >= 3.12.
 
 
 ## Example

@@ -24,3 +24,5 @@ jobs:
       - name: Lint
         run: flake8      
   
+      - name: Install package
+        run: pip3 install . && pip3 list | grep batchin-lib

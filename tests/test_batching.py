@@ -20,10 +20,16 @@ def generate_random_length_string(a: int, b: int) -> str:
 @patch.object(constants, "MAX_OUTPUT_RECORD_SIZE", new=MAX_RECORD_SIZE)
 class TestSplitRecordsIntoBatches(unittest.TestCase):
     def test_discards_large_records(self):
-        test_strings = ["a", generate_random_length_string(constants.MAX_OUTPUT_RECORD_SIZE + 1, constants.MAX_OUTPUT_RECORD_SIZE + 3), "b",
-                        generate_random_length_string(
-                            constants.MAX_OUTPUT_RECORD_SIZE + 1, constants.MAX_OUTPUT_RECORD_SIZE + 3), "c",
-                        generate_random_length_string(constants.MAX_OUTPUT_RECORD_SIZE + 1, constants.MAX_OUTPUT_RECORD_SIZE + 3), "d"]
+        test_strings = ["a",
+                        generate_random_length_string(constants.MAX_OUTPUT_RECORD_SIZE + 1,
+                                                      constants.MAX_OUTPUT_RECORD_SIZE + 3),
+                        "b",
+                        generate_random_length_string(constants.MAX_OUTPUT_RECORD_SIZE + 1,
+                                                      constants.MAX_OUTPUT_RECORD_SIZE + 3),
+                        "c",
+                        generate_random_length_string(constants.MAX_OUTPUT_RECORD_SIZE + 1,
+                                                      constants.MAX_OUTPUT_RECORD_SIZE + 3),
+                        "d"]
 
         batches = split_records_into_batches(test_strings)
 
@@ -54,6 +60,7 @@ class TestSplitRecordsIntoBatches(unittest.TestCase):
         test_strings = [str(i) for i in range(10000)]
 
         batches = split_records_into_batches(test_strings)
-        concatenated_batches = [record for batch in batches for record in batch]
-        
+        concatenated_batches = [
+            record for batch in batches for record in batch]
+
         self.assertListEqual(test_strings, concatenated_batches)

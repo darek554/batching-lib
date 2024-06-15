@@ -1,6 +1,6 @@
 name: Checks
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   test-lint-install:
@@ -22,7 +22,7 @@ jobs:
         run: python3 -m unittest discover -s ./tests -t ./tests
 
       - name: Lint
-        run: flake8      
+        run: flake8 --max-line-length=100   
   
       - name: Install package
-        run: pip3 install . && pip3 list | grep batchin-lib
+        run: pip3 install . && pip3 list | grep batching-lib

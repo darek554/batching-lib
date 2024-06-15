@@ -25,4 +25,4 @@ jobs:
         run: flake8 --max-line-length=100   
   
       - name: Install package
-        run: pip3 install . && pip3 list | grep asdf
+        run: pip3 install . && pip3 list | grep batching-lib

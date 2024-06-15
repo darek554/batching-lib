@@ -5,7 +5,7 @@ from multiprocessing import Pool, cpu_count
 
 
 def generate_random_string() -> str:
-    return ''.join('c' for _ in range(random.randint(1, 10)))
+    return "".join("c" for _ in range(random.randint(1, 10)))
 
 
 def is_object_size_less_than_or_equal(obj, size: int) -> bool:

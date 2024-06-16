@@ -1,6 +1,4 @@
 import sys
-import random
-import string
 import unittest
 
 from unittest.mock import patch
@@ -8,13 +6,12 @@ from unittest.mock import patch
 from batching import constants
 from batching.batching import split_records_into_batches
 
+from batching.utils import generate_random_length_string
+
 
 STR_OBJECT_SIZE = sys.getsizeof("")
 MAX_RECORD_SIZE = 1024 + STR_OBJECT_SIZE
 
-
-def generate_random_length_string(a: int, b: int) -> str:
-    return "".join(random.choice(string.ascii_letters) for _ in range(random.randint(a, b)))
 
 
 @patch.object(constants, "MAX_OUTPUT_RECORD_SIZE", new=MAX_RECORD_SIZE)

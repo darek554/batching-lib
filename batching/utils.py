@@ -1,11 +1,12 @@
 import sys
 import random
+import string
 
 from multiprocessing import Pool, cpu_count
 
 
-def generate_random_string() -> str:
-    return "".join("c" for _ in range(random.randint(1, 10)))
+def generate_random_length_string(a: int, b: int) -> str:
+    return "".join(random.choice(string.ascii_letters) for _ in range(random.randint(a, b)))
 
 
 def is_object_size_less_than_or_equal(obj, size: int) -> bool:

@@ -13,7 +13,6 @@ STR_OBJECT_SIZE = sys.getsizeof("")
 MAX_RECORD_SIZE = 1024 + STR_OBJECT_SIZE
 
 
-
 @patch.object(constants, "MAX_OUTPUT_RECORD_SIZE", new=MAX_RECORD_SIZE)
 class TestSplitRecordsIntoBatches(unittest.TestCase):
     def test_discards_large_records(self):
